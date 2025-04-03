@@ -261,6 +261,7 @@ export default function Home() {
                     src={partner.logo}
                     alt={partner.name}
                     fill
+                    sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 16vw"
                     className="object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
