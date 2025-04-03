@@ -14,15 +14,19 @@ export default function Footer() {
   }, [])
 
   const languages = [
-    { code: 'en', name: 'English', flag: '/flags/us.png' },
-    { code: 'es', name: 'Español', flag: '/flags/es.png' },
-    { code: 'pt', name: 'Português', flag: '/flags/pt.png' }
+    { code: 'en', name: 'English', flag: '/flags/us.png', url: '/en' },
+    { code: 'es', name: 'Español', flag: '/flags/es.png', url: '/es' },
+    { code: 'pt', name: 'Português', flag: '/flags/pt.png', url: '/pt' }
   ]
 
-  const handleLanguageChange = (langCode: string) => {
-    setCurrentLang(langCode)
+  const handleLanguageChange = (lang: string) => {
+    setCurrentLang(lang)
     setIsLangOpen(false)
-    // Add your language change logic here
+    // Navigate to the language-specific home page
+    const selectedLang = languages.find(l => l.code === lang)
+    if (selectedLang) {
+      window.location.href = selectedLang.url
+    }
   }
 
   if (!mounted) {
