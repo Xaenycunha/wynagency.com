@@ -9,24 +9,26 @@ export default function Footer() {
   const [currentLang, setCurrentLang] = useState('en')
   const [mounted, setMounted] = useState(false)
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
   const languages = [
-    { code: 'en', name: 'English', flag: '/flags/us.png', url: '/en' },
-    { code: 'es', name: 'Español', flag: '/flags/es.png', url: '/es' },
-    { code: 'pt', name: 'Português', flag: '/flags/pt.png', url: '/pt' }
+    { code: 'en', name: 'English', flag: '/flags/us.png' },
+    { code: 'es', name: 'Español', flag: '/flags/es.png' },
+    { code: 'pt', name: 'Português', flag: '/flags/pt.png' }
   ]
 
-  const handleLanguageChange = (lang: string) => {
-    setCurrentLang(lang)
+  useEffect(() => {
+    setMounted(true)
+    // Get the saved language from localStorage or default to 'en'
+    const savedLang = localStorage.getItem('selectedLanguage') || 'en'
+    setCurrentLang(savedLang)
+  }, [])
+
+  const handleLanguageChange = (langCode: string) => {
+    setCurrentLang(langCode)
     setIsLangOpen(false)
-    // Navigate to the language-specific home page
-    const selectedLang = languages.find(l => l.code === lang)
-    if (selectedLang) {
-      window.location.href = selectedLang.url
-    }
+    // Save the selected language to localStorage
+    localStorage.setItem('selectedLanguage', langCode)
+    // Navigate to the selected language's home page
+    window.location.href = `/${langCode}`
   }
 
   if (!mounted) {
@@ -34,21 +36,20 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-black text-white">
-      <div className="container mx-auto px-4 py-12">
+    <footer className="bg-gray-900 text-white py-12">
+      <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* About */}
           <div>
-            <h3 className="text-xl font-bold mb-4">WYN Agency</h3>
+            <h3 className="text-lg font-semibold mb-4">About</h3>
             <p className="text-gray-400">
-              Professional soccer agency dedicated to player development and career management.
-              We connect talent with opportunities worldwide.
+              WYN Agency is dedicated to elevating soccer careers through professional management and development.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/players" className="text-gray-400 hover:text-white transition-colors">
@@ -61,13 +62,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/#partners" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/partners" className="text-gray-400 hover:text-white transition-colors">
                   Partners
-                </Link>
-              </li>
-              <li>
-                <Link href="/#about" className="text-gray-400 hover:text-white transition-colors">
-                  About
                 </Link>
               </li>
             </ul>
@@ -75,18 +71,18 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Contact</h3>
+            <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <ul className="space-y-2">
               <li className="text-gray-400">Email: info@wynagency.com</li>
               <li className="text-gray-400">Phone: +34 663 836 731</li>
-              <li className="text-gray-400">Address: Madrid, Spain</li>
+              <li className="text-gray-400">Location: Madrid, Spain</li>
             </ul>
           </div>
 
           {/* Social */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Follow Us</h3>
-            <div className="flex items-center space-x-4">
+            <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
+            <div className="flex space-x-4">
               <a
                 href="https://instagram.com/wynagency"
                 target="_blank"
@@ -100,40 +96,46 @@ export default function Footer() {
             </div>
 
             {/* Language Selector */}
-            <div className="mt-8">
-              <div className="relative inline-block">
+            <div className="mt-4">
+              <div className="relative">
                 <button
                   onClick={() => setIsLangOpen(!isLangOpen)}
                   className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors"
                 >
                   <Image
-                    src={languages.find(lang => lang.code === currentLang)?.flag || languages[0].flag}
+                    src={languages.find(lang => lang.code === currentLang)?.flag || '/flags/us.png'}
                     alt={currentLang}
                     width={20}
-                    height={20}
+                    height={15}
                     className="rounded-sm"
                   />
-                  <span className="text-base">
-                    {languages.find(lang => lang.code === currentLang)?.name || 'English'}
-                  </span>
+                  <span>{languages.find(lang => lang.code === currentLang)?.name}</span>
+                  <svg
+                    className={`w-4 h-4 transition-transform ${isLangOpen ? 'rotate-180' : ''}`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
                 </button>
 
                 {isLangOpen && (
-                  <div className="absolute left-0 mt-2 py-2 w-48 bg-black rounded-md shadow-lg ring-1 ring-white ring-opacity-5">
-                    {languages.map((language) => (
+                  <div className="absolute bottom-full left-0 mb-2 w-48 bg-gray-800 rounded-lg shadow-lg py-2">
+                    {languages.map((lang) => (
                       <button
-                        key={language.code}
-                        onClick={() => handleLanguageChange(language.code)}
-                        className="flex items-center space-x-2 w-full px-4 py-2 text-base text-gray-400 hover:text-white hover:bg-gray-800"
+                        key={lang.code}
+                        onClick={() => handleLanguageChange(lang.code)}
+                        className="flex items-center space-x-2 w-full px-4 py-2 text-left hover:bg-gray-700 transition-colors"
                       >
                         <Image
-                          src={language.flag}
-                          alt={language.code}
+                          src={lang.flag}
+                          alt={lang.code}
                           width={20}
-                          height={20}
+                          height={15}
                           className="rounded-sm"
                         />
-                        <span>{language.name}</span>
+                        <span>{lang.name}</span>
                       </button>
                     ))}
                   </div>
@@ -143,7 +145,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+        <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
           <p>&copy; {new Date().getFullYear()} WYN Agency. All rights reserved.</p>
         </div>
       </div>
