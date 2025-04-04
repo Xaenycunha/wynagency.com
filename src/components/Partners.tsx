@@ -39,7 +39,7 @@ const partners = [
 export default function Partners() {
   const pathname = usePathname()
   const locale = pathname.split('/')[1] || 'pt'
-  const t = translations[locale as keyof typeof translations]
+  const t = translations[locale as keyof typeof translations] || translations.pt
 
   return (
     <section className="py-16 bg-gray-50">

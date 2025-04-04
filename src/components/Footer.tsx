@@ -3,11 +3,56 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
+
+// Footer translations
+const footerTranslations = {
+  en: {
+    about: 'About',
+    aboutText: 'WYN Agency is dedicated to elevating soccer careers through professional management and development.',
+    quickLinks: 'Quick Links',
+    players: 'Players',
+    tournaments: 'Tournaments',
+    contact: 'Contact',
+    email: 'Email: info@wynagency.com',
+    phone: 'Phone: +34 663 836 731',
+    location: 'Location: Madrid, Spain',
+    followUs: 'Follow Us',
+    allRightsReserved: 'All rights reserved.'
+  },
+  es: {
+    about: 'Nosotros',
+    aboutText: 'WYN Agency está dedicada a elevar las carreras del fútbol a través de la gestión y el desarrollo profesional.',
+    quickLinks: 'Enlaces Rápidos',
+    players: 'Jugadores',
+    tournaments: 'Torneos',
+    contact: 'Contacto',
+    email: 'Email: info@wynagency.com',
+    phone: 'Teléfono: +34 663 836 731',
+    location: 'Ubicación: Madrid, España',
+    followUs: 'Síguenos',
+    allRightsReserved: 'Todos los derechos reservados.'
+  },
+  pt: {
+    about: 'Sobre',
+    aboutText: 'A WYN Agency é dedicada a elevar carreiras no futebol através de gestão e desenvolvimento profissional.',
+    quickLinks: 'Links Rápidos',
+    players: 'Jogadores',
+    tournaments: 'Torneios',
+    contact: 'Contato',
+    email: 'Email: info@wynagency.com',
+    phone: 'Telefone: +34 663 836 731',
+    location: 'Localização: Madrid, Espanha',
+    followUs: 'Siga-nos',
+    allRightsReserved: 'Todos os direitos reservados.'
+  }
+}
 
 export default function Footer() {
   const [isLangOpen, setIsLangOpen] = useState(false)
-  const [currentLang, setCurrentLang] = useState('en')
+  const [currentLang, setCurrentLang] = useState('pt')
   const [mounted, setMounted] = useState(false)
+  const pathname = usePathname()
 
   const languages = [
     { code: 'en', name: 'English', flag: '/flags/us.png' },
@@ -31,6 +76,10 @@ export default function Footer() {
     window.location.href = `/${langCode}`
   }
 
+  // Get the current language from the pathname
+  const locale = pathname.split('/')[1] || 'pt'
+  const t = footerTranslations[locale as keyof typeof footerTranslations] || footerTranslations.pt
+
   if (!mounted) {
     return null
   }
@@ -41,29 +90,24 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* About */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">About</h3>
+            <h3 className="text-lg font-semibold mb-4">{t.about}</h3>
             <p className="text-gray-400">
-              WYN Agency is dedicated to elevating soccer careers through professional management and development.
+              {t.aboutText}
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4">{t.quickLinks}</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/players" className="text-gray-400 hover:text-white transition-colors">
-                  Players
+                <Link href={`/${locale}/${locale === 'en' ? 'players' : locale === 'es' ? 'jugadores' : 'jogadores'}`} className="text-gray-400 hover:text-white transition-colors">
+                  {t.players}
                 </Link>
               </li>
               <li>
-                <Link href="/tournaments" className="text-gray-400 hover:text-white transition-colors">
-                  Tournaments
-                </Link>
-              </li>
-              <li>
-                <Link href="/partners" className="text-gray-400 hover:text-white transition-colors">
-                  Partners
+                <Link href={`/${locale}/${locale === 'en' ? 'tournaments' : locale === 'es' ? 'torneos' : 'torneios'}`} className="text-gray-400 hover:text-white transition-colors">
+                  {t.tournaments}
                 </Link>
               </li>
             </ul>
@@ -71,17 +115,17 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact</h3>
+            <h3 className="text-lg font-semibold mb-4">{t.contact}</h3>
             <ul className="space-y-2">
-              <li className="text-gray-400">Email: info@wynagency.com</li>
-              <li className="text-gray-400">Phone: +34 663 836 731</li>
-              <li className="text-gray-400">Location: Madrid, Spain</li>
+              <li className="text-gray-400">{t.email}</li>
+              <li className="text-gray-400">{t.phone}</li>
+              <li className="text-gray-400">{t.location}</li>
             </ul>
           </div>
 
           {/* Social */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
+            <h3 className="text-lg font-semibold mb-4">{t.followUs}</h3>
             <div className="flex space-x-4">
               <a
                 href="https://instagram.com/wynagency"
@@ -103,7 +147,7 @@ export default function Footer() {
                   className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors"
                 >
                   <Image
-                    src={languages.find(lang => lang.code === currentLang)?.flag || '/flags/us.png'}
+                    src={languages.find(lang => lang.code === currentLang)?.flag || '/flags/pt.png'}
                     alt={currentLang}
                     width={20}
                     height={15}
@@ -146,7 +190,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} WYN Agency. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} WYN Agency. {t.allRightsReserved}</p>
         </div>
       </div>
     </footer>

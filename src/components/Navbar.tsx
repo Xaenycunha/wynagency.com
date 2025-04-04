@@ -39,7 +39,7 @@ export default function Navbar() {
   const currentLang = pathname.split('/')[1] || 'pt'
   
   // Get translations for the current language
-  const t = menuTranslations[currentLang as keyof typeof menuTranslations] || menuTranslations.en
+  const t = menuTranslations[currentLang as keyof typeof menuTranslations] || menuTranslations.pt
 
   return (
     <nav className="fixed w-full z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200">

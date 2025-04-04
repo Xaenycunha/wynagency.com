@@ -26,7 +26,7 @@ const translations = {
 export default function Hero() {
   const pathname = usePathname()
   const locale = pathname.split('/')[1] || 'pt'
-  const t = translations[locale as keyof typeof translations]
+  const t = translations[locale as keyof typeof translations] || translations.pt
 
   return (
     <section className="relative h-[80vh] flex items-center justify-center bg-gradient-to-r from-blue-900 to-blue-800 text-white">
