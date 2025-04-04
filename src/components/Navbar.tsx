@@ -53,8 +53,8 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/players" className={styles.navLink}>{t.players}</Link>
-            <Link href="/tournaments" className={styles.navLink}>{t.tournaments}</Link>
+            <Link href={`/${currentLang}/${currentLang === 'en' ? 'players' : currentLang === 'es' ? 'jugadores' : 'jogadores'}`} className={styles.navLink}>{t.players}</Link>
+            <Link href={`/${currentLang}/${currentLang === 'en' ? 'tournaments' : currentLang === 'es' ? 'torneos' : 'torneios'}`} className={styles.navLink}>{t.tournaments}</Link>
             <Link href={`/${currentLang}#${currentLang === 'en' ? 'partners' : currentLang === 'es' ? 'socios' : 'parceiros'}`} className={styles.navLink}>{t.partners}</Link>
             <Link href={`/${currentLang}#${currentLang === 'en' ? 'about' : currentLang === 'es' ? 'nosotros' : 'sobre'}`} className={styles.navLink}>{t.about}</Link>
             
@@ -105,8 +105,8 @@ export default function Navbar() {
         {isOpen && (
           <div className="md:hidden py-4">
             <div className="flex flex-col space-y-4">
-              <Link href="/players" className={styles.mobileNavLink}>{t.players}</Link>
-              <Link href="/tournaments" className={styles.mobileNavLink}>{t.tournaments}</Link>
+              <Link href={`/${currentLang}/${currentLang === 'en' ? 'players' : currentLang === 'es' ? 'jugadores' : 'jogadores'}`} className={styles.mobileNavLink}>{t.players}</Link>
+              <Link href={`/${currentLang}/${currentLang === 'en' ? 'tournaments' : currentLang === 'es' ? 'torneos' : 'torneios'}`} className={styles.mobileNavLink}>{t.tournaments}</Link>
               <Link href={`/${currentLang}#${currentLang === 'en' ? 'partners' : currentLang === 'es' ? 'socios' : 'parceiros'}`} className={styles.mobileNavLink}>{t.partners}</Link>
               <Link href={`/${currentLang}#${currentLang === 'en' ? 'about' : currentLang === 'es' ? 'nosotros' : 'sobre'}`} className={styles.mobileNavLink}>{t.about}</Link>
               <a 
