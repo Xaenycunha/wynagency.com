@@ -46,7 +46,7 @@ export default function Navbar() {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
+          <Link href={`/${currentLang}`} className="flex items-center space-x-2">
             <Image src="/wyn-logo.png" alt="WYN Agency" width={40} height={40} className="w-10 h-10" />
             <span className="text-xl font-bold">WYN</span>
           </Link>
