@@ -161,7 +161,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-white">
+      <section id="nosotros" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Sobre Nosotros</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -246,7 +246,7 @@ export default function Home() {
       </section>
 
       {/* Partners Section */}
-      <section id="partners" className="py-20 bg-white">
+      <section id="socios" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">Nuestros Socios</h2>
           

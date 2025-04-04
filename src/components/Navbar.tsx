@@ -55,8 +55,8 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-8">
             <Link href="/players" className={styles.navLink}>{t.players}</Link>
             <Link href="/tournaments" className={styles.navLink}>{t.tournaments}</Link>
-            <Link href="/#partners" className={styles.navLink}>{t.partners}</Link>
-            <Link href="/#about" className={styles.navLink}>{t.about}</Link>
+            <Link href={`/${currentLang}#${currentLang === 'en' ? 'partners' : currentLang === 'es' ? 'socios' : 'parceiros'}`} className={styles.navLink}>{t.partners}</Link>
+            <Link href={`/${currentLang}#${currentLang === 'en' ? 'about' : currentLang === 'es' ? 'nosotros' : 'sobre'}`} className={styles.navLink}>{t.about}</Link>
             
             <a 
               href="https://api.whatsapp.com/send?phone=34663836731"
@@ -107,8 +107,8 @@ export default function Navbar() {
             <div className="flex flex-col space-y-4">
               <Link href="/players" className={styles.mobileNavLink}>{t.players}</Link>
               <Link href="/tournaments" className={styles.mobileNavLink}>{t.tournaments}</Link>
-              <Link href="/#partners" className={styles.mobileNavLink}>{t.partners}</Link>
-              <Link href="/#about" className={styles.mobileNavLink}>{t.about}</Link>
+              <Link href={`/${currentLang}#${currentLang === 'en' ? 'partners' : currentLang === 'es' ? 'socios' : 'parceiros'}`} className={styles.mobileNavLink}>{t.partners}</Link>
+              <Link href={`/${currentLang}#${currentLang === 'en' ? 'about' : currentLang === 'es' ? 'nosotros' : 'sobre'}`} className={styles.mobileNavLink}>{t.about}</Link>
               <a 
                 href="https://api.whatsapp.com/send?phone=34663836731"
                 target="_blank"
