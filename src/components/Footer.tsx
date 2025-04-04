@@ -17,8 +17,8 @@ export default function Footer() {
 
   useEffect(() => {
     setMounted(true)
-    // Get the saved language from localStorage or default to 'en'
-    const savedLang = localStorage.getItem('selectedLanguage') || 'en'
+    // Get the saved language from localStorage or default to 'pt'
+    const savedLang = localStorage.getItem('selectedLanguage') || 'pt'
     setCurrentLang(savedLang)
   }, [])
 

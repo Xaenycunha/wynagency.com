@@ -38,7 +38,7 @@ const partners = [
 
 export default function Partners() {
   const pathname = usePathname()
-  const locale = pathname.split('/')[1] || 'en'
+  const locale = pathname.split('/')[1] || 'pt'
   const t = translations[locale as keyof typeof translations]
 
   return (

@@ -36,7 +36,7 @@ export default function Navbar() {
   const pathname = usePathname()
   
   // Get the current language from the pathname
-  const currentLang = pathname.split('/')[1] || 'en'
+  const currentLang = pathname.split('/')[1] || 'pt'
   
   // Get translations for the current language
   const t = menuTranslations[currentLang as keyof typeof menuTranslations] || menuTranslations.en

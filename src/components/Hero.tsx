@@ -25,7 +25,7 @@ const translations = {
 
 export default function Hero() {
   const pathname = usePathname()
-  const locale = pathname.split('/')[1] || 'en'
+  const locale = pathname.split('/')[1] || 'pt'
   const t = translations[locale as keyof typeof translations]
 
   return (
