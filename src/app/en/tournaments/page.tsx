@@ -3,25 +3,32 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 
 const tournaments = [
   {
-    title: 'International Cup 2024',
-    date: 'June 10 - July 12, 2024',
-    location: 'Multiple Venues, Europe',
-    image: 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=1000&auto=format&fit=crop',
-    description: 'The most prestigious international tournament featuring top teams from around the world. This year\'s edition promises to be the biggest yet, with 24 teams competing for glory.'
+    title: 'MICFootball',
+    date: 'April',
+    location: 'Costa Brava, Spain',
+    image: '/tournaments/mic-football.jpg',
+    description: 'MICFootball is an international youth football tournament that brings together some of the world\'s best academies on the Costa Brava, Spain. Held annually during Easter, it offers young players from five continents the opportunity to compete and experience something similar to professional football.'
   },
   {
-    title: 'Champions League',
-    date: 'September 2024 - May 2025',
-    location: 'Various Cities, Europe',
-    image: 'https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?q=80&w=1000&auto=format&fit=crop',
-    description: 'Europe\'s premier club competition featuring the continent\'s best teams. The tournament represents the pinnacle of club football.'
+    title: 'Gothia Cup',
+    date: 'July',
+    location: 'Gothenburg, Sweden',
+    image: '/tournaments/gothia-cup.jpg',
+    description: 'The Gothia Cup is the world\'s largest and most international youth football tournament, held annually in Gothenburg, Sweden. Since 1975, approximately 1,900 teams from 75 nations participate, playing nearly 5,000 matches on 112 fields.'
   },
   {
-    title: 'Youth Development Cup',
-    date: 'August 15-30, 2024',
-    location: 'Madrid, Spain',
-    image: 'https://images.unsplash.com/photo-1459865264687-595d652de67e?q=80&w=1000&auto=format&fit=crop',
-    description: 'A tournament focused on developing young talent and showcasing future stars. This competition has launched many successful careers.'
+    title: 'Pulcino d\'Oro',
+    date: 'June',
+    location: 'Levico Terme, Trentino, Italy',
+    image: '/tournaments/pulcino-doro.jpg',
+    description: 'Pulcino d\'Oro is an international youth football tournament held in Levico Terme, in the Trentino region, Italy. Aimed at U-11 teams, it brings together amateur and professional clubs from various countries, promoting not only competition but also the educational spirit of teamwork and cultural exchange among participants.'
+  },
+  {
+    title: 'Valencia Experience',
+    date: 'October',
+    location: 'Valencia, Spain',
+    image: '/tournaments/valencia-experience.jpg',
+    description: 'The Valencia Experience is a training program offered by Valencia CF, aimed at teams or groups of players from around the world. Participants have the opportunity to train at the club\'s facilities with VCF Academy coaches, as well as play friendly matches against local teams. The program also includes visits to the Mestalla Stadium and other cultural activities in Valencia.'
   }
 ]
 
