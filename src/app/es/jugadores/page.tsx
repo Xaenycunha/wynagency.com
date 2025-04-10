@@ -10,7 +10,7 @@ const players = [
     age: 18,
     nationality: 'Brasil',
     category: 'Fútbol',
-    image: '/players/player-1.jpg',
+    image: '/players/joao-victor.jpg',
     description: 'Un prometedor defensa con fuertes habilidades defensivas y cualidades de liderazgo. Actualmente desarrollando sus habilidades en São Paulo.'
   },
   {
@@ -20,8 +20,8 @@ const players = [
     age: 0,
     nationality: 'Brasil',
     category: 'Fútbol',
-    image: '/players/player-2.jpg',
-    description: 'Un talentoso portero conocido por su agilidad y capacidad para detener tiros. Actualmente juega para IFK Åmål.'
+    image: '/players/wallace-falcao.jpg',
+    description: 'Un talentoso portero conocido por su agilidad y capacidad para detener disparos. Actualmente juega para IFK Åmål.'
   },
   {
     id: 'khalyan-pereira',
@@ -30,8 +30,8 @@ const players = [
     age: 22,
     nationality: 'Brasil',
     category: 'Fútbol',
-    image: '/players/player-3.jpg',
-    description: 'Un experimentado defensa con sólidas capacidades defensivas. Aporta fuerza y serenidad a la línea defensiva de IFK Åmål.'
+    image: '/players/khalyan-pereira.jpg',
+    description: 'Un experimentado defensor con sólidas capacidades defensivas. Aporta fuerza y compostura a la línea defensiva del IFK Åmål.'
   }
 ]
 

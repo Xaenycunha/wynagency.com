@@ -50,12 +50,13 @@ interface Players {
 
 const players: Players = {
   'player-1': {
-    name: 'Alex Rodriguez',
+    name: 'Alex Rodríguez',
     position: 'Delantero',
     age: 24,
     nationality: 'Español',
     height: '1.85m',
     weight: '78kg',
+    category: 'Fútbol',
     stats: {
       goals: 15,
       assists: 8,
@@ -132,6 +133,7 @@ const players: Players = {
     nationality: 'Inglés',
     height: '1.78m',
     weight: '72kg',
+    category: 'Fútbol',
     stats: {
       goals: 8,
       assists: 12,
@@ -177,6 +179,7 @@ const players: Players = {
     nationality: 'Brasileño',
     height: '1.92m',
     weight: '85kg',
+    category: 'Fútbol',
     stats: {
       goals: 2,
       assists: 3,
@@ -216,14 +219,14 @@ const players: Players = {
     ]
   },
   'joao-victor': {
-    id: 'joao-victor',
     name: 'João Victor',
-    position: 'Defensa',
+    position: 'Defensor',
     age: 18,
     nationality: 'Brasil',
     height: '1.85m',
     weight: '75kg',
     category: 'Fútbol',
+    image: '/players/joao-victor.jpg',
     instagram: 'https://www.instagram.com/anjos_joaozinho/',
     stats: {
       goals: 0,
@@ -247,8 +250,8 @@ const players: Players = {
     media: [
       {
         type: 'image',
-        url: '/players/player-1.jpg',
-        caption: 'Acción de partido'
+        url: '/players/joao-victor.jpg',
+        caption: 'Acción de juego'
       },
       {
         type: 'image',
@@ -263,7 +266,6 @@ const players: Players = {
     ]
   },
   'wallace-falcao': {
-    id: 'wallace-falcao',
     name: 'Wallace Falcão',
     position: 'Portero',
     age: 0,
@@ -271,6 +273,7 @@ const players: Players = {
     height: '1.90m',
     weight: '85kg',
     category: 'Fútbol',
+    image: '/players/wallace-falcao.jpg',
     instagram: 'https://www.instagram.com/wallace_cf/',
     stats: {
       goals: 0,
@@ -294,8 +297,8 @@ const players: Players = {
     media: [
       {
         type: 'image',
-        url: '/players/player-2.jpg',
-        caption: 'Acción de partido'
+        url: '/players/wallace-falcao.jpg',
+        caption: 'Acción de juego'
       },
       {
         type: 'image',
@@ -310,14 +313,14 @@ const players: Players = {
     ]
   },
   'khalyan-pereira': {
-    id: 'khalyan-pereira',
     name: 'Khalyan Pereira',
-    position: 'Defensa',
+    position: 'Defensor',
     age: 22,
     nationality: 'Brasil',
     height: '1.88m',
     weight: '80kg',
     category: 'Fútbol',
+    image: '/players/khalyan-pereira.jpg',
     instagram: 'https://www.instagram.com/khalyan02/',
     stats: {
       goals: 0,
@@ -341,8 +344,8 @@ const players: Players = {
     media: [
       {
         type: 'image',
-        url: '/players/player-3.jpg',
-        caption: 'Acción de partido'
+        url: '/players/khalyan-pereira.jpg',
+        caption: 'Acción en el campo'
       },
       {
         type: 'image',
@@ -518,9 +521,9 @@ export default function PlayerPage({ params }: { params: { id: string } }) {
 
         {player.media && player.media.length > 0 && (
           <div>
-            <h2 className="text-2xl font-bold mb-8">Medios</h2>
+            <h2 className="text-2xl font-bold mb-8">Media</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {player.media.map((item, index) => (
+              {player.media?.map((item, index) => (
                 <div key={index} className="group relative h-64 rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
                   <Image
                     src={item.url}
@@ -537,64 +540,6 @@ export default function PlayerPage({ params }: { params: { id: string } }) {
             </div>
           </div>
         )}
-
-        <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-          <div className="flex flex-col md:flex-row gap-8">
-            <div className="w-full md:w-1/3">
-              <div className="relative aspect-[3/4] rounded-lg overflow-hidden mb-4">
-                <Image
-                  src={player.media[0].url}
-                  alt={player.name}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="grid grid-cols-2 gap-4 text-sm">
-                <div>
-                  <p className="text-gray-600">Posición</p>
-                  <p className="font-medium">{player.position}</p>
-                </div>
-                <div>
-                  <p className="text-gray-600">Edad</p>
-                  <p className="font-medium">{player.age}</p>
-                </div>
-                <div>
-                  <p className="text-gray-600">Nacionalidad</p>
-                  <p className="font-medium">{player.nationality}</p>
-                </div>
-                <div>
-                  <p className="text-gray-600">Altura</p>
-                  <p className="font-medium">{player.height}</p>
-                </div>
-                <div>
-                  <p className="text-gray-600">Peso</p>
-                  <p className="font-medium">{player.weight}</p>
-                </div>
-                <div>
-                  <p className="text-gray-600">Categoría</p>
-                  <p className="font-medium">{player.category}</p>
-                </div>
-                <div>
-                  <p className="text-gray-600">Instagram</p>
-                  <p className="font-medium">
-                    {player.instagram ? (
-                      <a 
-                        href={player.instagram} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-800"
-                      >
-                        @{player.instagram.split('/').pop()}
-                      </a>
-                    ) : (
-                      '-'
-                    )}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   )

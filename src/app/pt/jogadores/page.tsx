@@ -10,7 +10,7 @@ const players = [
     age: 18,
     nationality: 'Brasil',
     category: 'Futebol',
-    image: '/players/player-1.jpg',
+    image: '/players/joao-victor.jpg',
     description: 'Um promissor zagueiro com fortes habilidades defensivas e qualidades de liderança. Atualmente desenvolvendo suas habilidades no São Paulo.'
   },
   {
@@ -20,7 +20,7 @@ const players = [
     age: 0,
     nationality: 'Brasil',
     category: 'Futebol',
-    image: '/players/player-2.jpg',
+    image: '/players/wallace-falcao.jpg',
     description: 'Um talentoso goleiro conhecido por sua agilidade e capacidade de defesa. Atualmente joga pelo IFK Åmål.'
   },
   {
@@ -30,7 +30,7 @@ const players = [
     age: 22,
     nationality: 'Brasil',
     category: 'Futebol',
-    image: '/players/player-3.jpg',
+    image: '/players/khalyan-pereira.jpg',
     description: 'Um experiente zagueiro com sólidas capacidades defensivas. Traz força e serenidade para a linha defensiva do IFK Åmål.'
   }
 ]

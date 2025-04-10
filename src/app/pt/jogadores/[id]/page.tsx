@@ -29,6 +29,7 @@ interface PlayerStats {
 }
 
 interface Player {
+  id?: string
   name: string
   position: string
   age: number
@@ -50,18 +51,20 @@ interface Players {
 
 const players: Players = {
   'player-1': {
+    id: 'player-1',
     name: 'Alex Rodriguez',
     position: 'Atacante',
     age: 24,
     nationality: 'Espanhol',
     height: '1.85m',
     weight: '78kg',
+    category: 'Futebol',
+    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1000&auto=format&fit=crop',
     stats: {
       goals: 15,
       assists: 8,
       matches: 25
     },
-    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1000&auto=format&fit=crop',
     bio: 'Um atacante dinâmico com velocidade excepcional e capacidade de finalização. Conhecido por sua precisão no chute e sua capacidade de criar oportunidades para seus companheiros.',
     trajectory: [
       {
@@ -79,7 +82,7 @@ const players: Players = {
         }
       },
       {
-        team: 'Atlético de Madrid',
+        team: 'Atletico Madrid',
         period: '2020 - 2022',
         role: 'Atacante',
         achievements: ['Campeão da La Liga 2021', 'Campeão da Europa League 2022'],
@@ -126,24 +129,26 @@ const players: Players = {
     ]
   },
   'player-2': {
+    id: 'player-2',
     name: 'Marcus Johnson',
     position: 'Meio-campo',
     age: 22,
     nationality: 'Inglês',
     height: '1.78m',
     weight: '72kg',
+    category: 'Futebol',
+    image: 'https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=1000&auto=format&fit=crop',
     stats: {
       goals: 8,
       assists: 12,
       matches: 28
     },
-    image: 'https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=1000&auto=format&fit=crop',
     bio: 'Um meio-campista criativo com excelente visão e passe. Conhecido por sua capacidade de controlar o ritmo do jogo e criar oportunidades de gol.',
     trajectory: [
       {
         team: 'Manchester City',
         period: '2021 - Presente',
-        role: 'Meio-campo Central',
+        role: 'Meio-campista Central',
         achievements: ['Campeão da Premier League 2022, 2023', 'Campeão da FA Cup 2023'],
         logo: '/partners/man-city.png',
         stats: {
@@ -157,7 +162,7 @@ const players: Players = {
       {
         team: 'Leicester City',
         period: '2019 - 2021',
-        role: 'Meio-campo',
+        role: 'Meio-campista',
         achievements: ['Campeão da FA Cup 2021'],
         logo: '/partners/leicester.png',
         stats: {
@@ -168,6 +173,18 @@ const players: Players = {
           redCards: 0
         }
       }
+    ],
+    media: [
+      {
+        type: 'image',
+        url: 'https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=1000&auto=format&fit=crop',
+        caption: 'Comemoração do gol da vitória'
+      },
+      {
+        type: 'image',
+        url: 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=1000&auto=format&fit=crop',
+        caption: 'Sessão de treino'
+      }
     ]
   },
   'player-3': {
@@ -177,6 +194,7 @@ const players: Players = {
     nationality: 'Brasileiro',
     height: '1.92m',
     weight: '85kg',
+    category: 'Futebol',
     stats: {
       goals: 2,
       assists: 3,
@@ -224,6 +242,7 @@ const players: Players = {
     height: '1.85m',
     weight: '75kg',
     category: 'Futebol',
+    image: '/players/joao-victor.jpg',
     instagram: 'https://www.instagram.com/anjos_joaozinho/',
     stats: {
       goals: 0,
@@ -249,7 +268,7 @@ const players: Players = {
     media: [
       {
         type: 'image',
-        url: '/players/player-1.jpg',
+        url: '/players/joao-victor.jpg',
         caption: 'Ação de jogo'
       },
       {
@@ -273,6 +292,7 @@ const players: Players = {
     height: '1.90m',
     weight: '85kg',
     category: 'Futebol',
+    image: '/players/wallace-falcao.jpg',
     instagram: 'https://www.instagram.com/wallace_cf/',
     stats: {
       goals: 0,
@@ -298,7 +318,7 @@ const players: Players = {
     media: [
       {
         type: 'image',
-        url: '/players/player-2.jpg',
+        url: '/players/wallace-falcao.jpg',
         caption: 'Ação de jogo'
       },
       {
@@ -316,25 +336,27 @@ const players: Players = {
   'khalyan-pereira': {
     id: 'khalyan-pereira',
     name: 'Khalyan Pereira',
-    position: 'Zagueiro',
+    position: 'Defensor',
     age: 22,
     nationality: 'Brasil',
     height: '1.88m',
     weight: '80kg',
     category: 'Futebol',
+    image: '/players/khalyan-pereira.jpg',
     instagram: 'https://www.instagram.com/khalyan02/',
     stats: {
       goals: 0,
       assists: 0,
       matches: 0
     },
-    bio: 'Khalyan Pereira é um habilidoso zagueiro de Pernambuco, Brasil. Aos 22 anos, traz experiência e sólidas capacidades defensivas para o IFK Åmål.',
+    bio: 'Khalyan Pereira é um habilidoso defensor de Pernambuco, Brasil. Aos 22 anos, traz experiência e sólidas capacidades defensivas ao IFK Åmål.',
     trajectory: [
       {
         team: 'IFK Åmål',
         period: '2023 - Presente',
-        role: 'Zagueiro',
+        role: 'Defensor',
         achievements: [],
+        logo: '/partners/ifk-amal.png',
         stats: {
           goals: 0,
           assists: 0,
@@ -347,18 +369,13 @@ const players: Players = {
     media: [
       {
         type: 'image',
-        url: '/players/player-3.jpg',
-        caption: 'Ação de jogo'
+        url: '/players/khalyan-pereira.jpg',
+        caption: 'Ação em campo'
       },
       {
         type: 'image',
         url: '/players/player-3-2.jpg',
         caption: 'Sessão de treino'
-      },
-      {
-        type: 'image',
-        url: '/players/player-3-3.jpg',
-        caption: 'Foto do time'
       }
     ]
   }
@@ -439,6 +456,17 @@ export default function PlayerPage({ params }: { params: { id: string } }) {
                 <p className="text-gray-600">Peso</p>
                 <p className="font-semibold">{player.weight}</p>
               </div>
+              {player.instagram && (
+                <div>
+                  <p className="text-gray-600">Instagram</p>
+                  <a href={player.instagram} target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-600 hover:text-blue-800 flex items-center gap-2">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path fillRule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clipRule="evenodd" />
+                    </svg>
+                    {player.instagram.split('/').pop()}
+                  </a>
+                </div>
+              )}
             </div>
             <div className="bg-gray-50 p-6 rounded-2xl mb-8">
               <h2 className="text-xl font-bold mb-4">Estatísticas da Temporada</h2>
@@ -524,7 +552,7 @@ export default function PlayerPage({ params }: { params: { id: string } }) {
 
         {player.media && player.media.length > 0 && (
           <div>
-            <h2 className="text-2xl font-bold mb-8">Mídia</h2>
+            <h2 className="text-2xl font-bold mb-8">Media</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {player.media.map((item, index) => (
                 <div key={index} className="group relative h-64 rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
@@ -543,64 +571,6 @@ export default function PlayerPage({ params }: { params: { id: string } }) {
             </div>
           </div>
         )}
-
-        <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-          <div className="flex flex-col md:flex-row gap-8">
-            <div className="w-full md:w-1/3">
-              <div className="relative aspect-[3/4] rounded-lg overflow-hidden mb-4">
-                <Image
-                  src={player.media[0].url}
-                  alt={player.name}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="grid grid-cols-2 gap-4 text-sm">
-                <div>
-                  <p className="text-gray-600">Posição</p>
-                  <p className="font-medium">{player.position}</p>
-                </div>
-                <div>
-                  <p className="text-gray-600">Idade</p>
-                  <p className="font-medium">{player.age}</p>
-                </div>
-                <div>
-                  <p className="text-gray-600">Nacionalidade</p>
-                  <p className="font-medium">{player.nationality}</p>
-                </div>
-                <div>
-                  <p className="text-gray-600">Altura</p>
-                  <p className="font-medium">{player.height}</p>
-                </div>
-                <div>
-                  <p className="text-gray-600">Peso</p>
-                  <p className="font-medium">{player.weight}</p>
-                </div>
-                <div>
-                  <p className="text-gray-600">Categoria</p>
-                  <p className="font-medium">{player.category}</p>
-                </div>
-                <div>
-                  <p className="text-gray-600">Instagram</p>
-                  <p className="font-medium">
-                    {player.instagram ? (
-                      <a 
-                        href={player.instagram} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-800"
-                      >
-                        @{player.instagram.split('/').pop()}
-                      </a>
-                    ) : (
-                      '-'
-                    )}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   )
