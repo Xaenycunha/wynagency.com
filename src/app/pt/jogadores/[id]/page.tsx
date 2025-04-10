@@ -51,7 +51,6 @@ interface Players {
 
 const players: Players = {
   'player-1': {
-    id: 'player-1',
     name: 'Alex Rodriguez',
     position: 'Atacante',
     age: 24,
@@ -129,7 +128,6 @@ const players: Players = {
     ]
   },
   'player-2': {
-    id: 'player-2',
     name: 'Marcus Johnson',
     position: 'Meio-campo',
     age: 22,
@@ -234,7 +232,6 @@ const players: Players = {
     ]
   },
   'joao-victor': {
-    id: 'joao-victor',
     name: 'João Victor',
     position: 'Zagueiro',
     age: 18,
@@ -284,7 +281,6 @@ const players: Players = {
     ]
   },
   'wallace-falcao': {
-    id: 'wallace-falcao',
     name: 'Wallace Falcão',
     position: 'Goleiro',
     age: 0,
@@ -334,7 +330,6 @@ const players: Players = {
     ]
   },
   'khalyan-pereira': {
-    id: 'khalyan-pereira',
     name: 'Khalyan Pereira',
     position: 'Defensor',
     age: 22,
