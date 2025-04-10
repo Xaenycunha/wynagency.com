@@ -25,19 +25,24 @@ const players = [
 
 const tournaments = [
   {
-    title: 'Copa Internacional 2024',
-    content: 'O torneio internacional mais prestigioso, contando com os melhores times do mundo.',
-    image: 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=1000&auto=format&fit=crop'
+    title: 'MICFootball',
+    image: '/tournaments/mic-football.jpg',
+    content: 'O MICFootball é um torneio internacional de futebol juvenil que reúne algumas das melhores academias do mundo na Costa Brava, Espanha.'
   },
   {
-    title: 'Liga dos Campeões',
-    content: 'A principal competição de clubes da Europa, reunindo os melhores times do continente.',
-    image: 'https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?q=80&w=1000&auto=format&fit=crop'
+    title: 'Gothia Cup',
+    image: '/tournaments/gothia-cup.jpg',
+    content: 'A Gothia Cup é o maior e mais internacional torneio de futebol juvenil do mundo, realizado anualmente em Gotemburgo, Suécia.'
   },
   {
-    title: 'Copa de Desenvolvimento Juvenil',
-    content: 'Um torneio focado em desenvolver talentos jovens e mostrar as futuras estrelas.',
-    image: 'https://images.unsplash.com/photo-1459865264687-595d652de67e?q=80&w=1000&auto=format&fit=crop'
+    title: 'Pulcino d\'Oro',
+    image: '/tournaments/pulcino-doro.jpg',
+    content: 'O Pulcino d\'Oro é um torneio internacional de futebol juvenil realizado em Levico Terme, na região de Trentino, Itália.'
+  },
+  {
+    title: 'Valencia Experience',
+    image: '/tournaments/valencia-experience.jpg',
+    content: 'O Valencia Experience é um programa de treinamento oferecido pelo Valencia CF, destinado a equipes ou grupos de jogadores de todo o mundo.'
   }
 ]
 
