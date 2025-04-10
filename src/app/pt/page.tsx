@@ -4,22 +4,22 @@ import Carousel from '@/components/Carousel'
 
 const players = [
   {
-    id: 'player-1',
-    title: 'Alex Rodriguez',
-    content: 'Um atacante dinâmico com velocidade excepcional e capacidade de finalização. Conhecido por sua precisão nos chutes e habilidade em criar oportunidades para seus companheiros.',
-    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1000&auto=format&fit=crop'
+    id: 'joao-victor',
+    name: 'João Victor',
+    image: '/players/joao-victor.jpg',
+    description: 'Um promissor zagueiro com fortes habilidades defensivas e qualidades de liderança. Atualmente desenvolvendo suas habilidades no São Paulo.'
   },
   {
-    id: 'player-2',
-    title: 'Marcus Johnson',
-    content: 'Um meio-campista criativo com excelente visão de jogo e amplitude de passes. Conhecido por sua capacidade de controlar o ritmo do jogo e criar oportunidades de gol.',
-    image: 'https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=1000&auto=format&fit=crop'
+    id: 'wallace-falcao',
+    name: 'Wallace Falcão',
+    image: '/players/wallace-falcao.jpg',
+    description: 'Um talentoso goleiro conhecido por sua agilidade e capacidade de defesa. Atualmente joga pelo IFK Åmål.'
   },
   {
-    id: 'player-3',
-    title: 'Lucas Silva',
-    content: 'Um zagueiro dominante com excelente capacidade aérea e desarme. Conhecido por suas qualidades de liderança e capacidade de organizar a defesa.',
-    image: 'https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=1000&auto=format&fit=crop'
+    id: 'khalyan-pereira',
+    name: 'Khalyan Pereira',
+    image: '/players/khalyan-pereira.jpg',
+    description: 'Um experiente zagueiro com sólidas capacidades defensivas. Traz força e serenidade para a linha defensiva do IFK Åmål.'
   }
 ]
 
@@ -193,21 +193,21 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {players.map((player) => (
               <Link 
-                href={`/players/${player.id}`} 
-                key={player.title}
+                href={`/pt/jogadores/${player.id}`}
+                key={player.id}
                 className="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105"
               >
                 <div className="relative h-64">
                   <Image
                     src={player.image}
-                    alt={player.title}
+                    alt={player.name}
                     fill
                     className="object-cover"
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">{player.title}</h3>
-                  <p className="text-gray-700">{player.content}</p>
+                  <h3 className="text-xl font-bold mb-2">{player.name}</h3>
+                  <p className="text-gray-700">{player.description}</p>
                 </div>
               </Link>
             ))}

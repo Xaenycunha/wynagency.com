@@ -4,22 +4,22 @@ import Carousel from '@/components/Carousel'
 
 const players = [
   {
-    id: 'player-1',
-    title: 'Alex Rodriguez',
-    content: 'A dynamic forward with exceptional speed and finishing ability. Known for his clinical finishing and ability to create chances for teammates.',
-    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1000&auto=format&fit=crop'
+    id: 'joao-victor',
+    name: 'João Victor',
+    image: '/players/joao-victor.jpg',
+    description: 'A promising defender with strong defensive skills and leadership qualities. Currently developing his skills at São Paulo.'
   },
   {
-    id: 'player-2',
-    title: 'Marcus Johnson',
-    content: 'A creative midfielder with excellent vision and passing range. Known for his ability to control the tempo of the game and create scoring opportunities.',
-    image: 'https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=1000&auto=format&fit=crop'
+    id: 'wallace-falcao',
+    name: 'Wallace Falcão',
+    image: '/players/wallace-falcao.jpg',
+    description: 'A talented goalkeeper known for his agility and shot-stopping ability. Currently plays for IFK Åmål.'
   },
   {
-    id: 'player-3',
-    title: 'Lucas Silva',
-    content: 'A commanding center-back with excellent aerial ability and tackling. Known for his leadership qualities and ability to organize the defense.',
-    image: 'https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=1000&auto=format&fit=crop'
+    id: 'khalyan-pereira',
+    name: 'Khalyan Pereira',
+    image: '/players/khalyan-pereira.jpg',
+    description: 'An experienced defender with solid defensive capabilities. Brings strength and composure to the IFK Åmål backline.'
   }
 ]
 
@@ -193,21 +193,21 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {players.map((player) => (
               <Link 
-                href={`/players/${player.id}`} 
-                key={player.title}
+                href={`/en/players/${player.id}`}
+                key={player.id}
                 className="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105"
               >
                 <div className="relative h-64">
                   <Image
                     src={player.image}
-                    alt={player.title}
+                    alt={player.name}
                     fill
                     className="object-cover"
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">{player.title}</h3>
-                  <p className="text-gray-700">{player.content}</p>
+                  <h3 className="text-xl font-bold mb-2">{player.name}</h3>
+                  <p className="text-gray-700">{player.description}</p>
                 </div>
               </Link>
             ))}
