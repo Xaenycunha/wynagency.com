@@ -50,19 +50,19 @@ const teamMembers = [
   {
     name: 'Kelvin Bruno',
     role: 'CEO e Fundador',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop',
+    image: '/founders/kelvin-bruno.jpg',
     bio: 'Com mais de 15 anos de experiência em gestão esportiva, Kelvin construiu uma reputação por identificar e desenvolver talentos de elite.'
   },
   {
     name: 'Victor Araújo',
     role: 'Diretor de Desenvolvimento de Jogadores',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop',
+    image: '/founders/victor-araujo.jpg',
     bio: 'Ex-jogador profissional que se tornou olheiro, Victor traz uma perspectiva única para o desenvolvimento de jogadores e gestão de carreiras.'
   },
   {
     name: 'Xay Cunha',
     role: 'Relações Internacionais',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop',
+    image: '/founders/xay-cunha.jpg',
     bio: 'Especializado em transferências internacionais e relações com clubes, Xay estabeleceu fortes redes nos mercados globais de futebol.'
   }
 ]
@@ -98,37 +98,18 @@ const services = [
 ]
 
 const partners = [
-  {
-    name: 'Real Madrid',
-    logo: '/partners/real-madrid.png',
-    country: 'Espanha'
-  },
-  {
-    name: 'Manchester City',
-    logo: '/partners/man-city.png',
-    country: 'Inglaterra'
-  },
-  {
-    name: 'Paris Saint-Germain',
-    logo: '/partners/psg.png',
-    country: 'França'
-  },
-  {
-    name: 'Bayern Munich',
-    logo: '/partners/bayern.png',
-    country: 'Alemanha'
-  },
-  {
-    name: 'Ajax',
-    logo: '/partners/ajax.png',
-    country: 'Países Baixos'
-  },
-  {
-    name: 'Porto',
-    logo: '/partners/porto.png',
-    country: 'Portugal'
-  }
-]
+  { name: 'Valencia CF', logo: '/partners/valencia-fc.jpg', country: 'Espanha' },
+  { name: 'Next Academy', logo: '/partners/next-academy.jpg', country: 'Internacional' },
+  { name: 'CF Safor Gandía', logo: '/partners/safor-fc.jpg', country: 'Espanha' },
+  { name: 'Real Murcia CF', logo: '/partners/real-murcia-fc.jpg', country: 'Espanha' },
+  { name: 'Portimonense SC', logo: '/partners/portimonense-fc.jpg', country: 'Portugal' },
+  { name: 'CF Gandía', logo: '/partners/gandia-fc.jpg', country: 'Espanha' },
+  { name: 'IFK Åmål', logo: '/partners/ifk-amal.jpg', country: 'Suécia' },
+  { name: 'Olimpia Regium', logo: '/partners/olimpia-regium.jpg', country: 'Itália' },
+  { name: 'Tubarão', logo: '/partners/tubarao.jpg', country: 'Brasil' },
+  { name: 'Las Gabias CF', logo: '/partners/las-gabias.jpg', country: 'Espanha' },
+  { name: 'São Raimundo EC', logo: '/partners/sao-raimundo-fc.jpg', country: 'Brasil' },
+];
 
 export default function Home() {
   return (
