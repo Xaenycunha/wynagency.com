@@ -554,7 +554,7 @@ export default function PlayerPage({ params }: { params: { id: string } }) {
           <div>
             <h2 className="text-2xl font-bold mb-8">Media</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {player.media.map((item, index) => (
+              {(player.media || []).map((item, index) => (
                 <div key={index} className="group relative h-64 rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
                   <Image
                     src={item.url}
