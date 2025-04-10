@@ -40,6 +40,8 @@ interface Player {
   bio: string
   trajectory: TrajectoryStep[]
   media?: MediaItem[]
+  instagram?: string
+  category: string
 }
 
 interface Players {
@@ -210,6 +212,147 @@ const players: Players = {
           yellowCards: 5,
           redCards: 1
         }
+      }
+    ]
+  },
+  'joao-victor': {
+    id: 'joao-victor',
+    name: 'João Victor',
+    position: 'Defensa',
+    age: 18,
+    nationality: 'Brasil',
+    height: '1.85m',
+    weight: '75kg',
+    category: 'Fútbol',
+    instagram: 'https://www.instagram.com/anjos_joaozinho/',
+    stats: {
+      goals: 0,
+      assists: 0,
+      matches: 0
+    },
+    bio: 'João Victor es un prometedor defensa de São Paulo, Brasil. Nacido en 2007, ha demostrado un gran potencial en sus habilidades defensivas y liderazgo en el campo.',
+    trajectory: [
+      {
+        team: 'São Paulo',
+        period: '2023 - Presente',
+        role: 'Defensa',
+        achievements: [],
+        stats: {
+          goals: 0,
+          assists: 0,
+          matches: 0
+        }
+      }
+    ],
+    media: [
+      {
+        type: 'image',
+        url: '/players/player-1.jpg',
+        caption: 'Acción de partido'
+      },
+      {
+        type: 'image',
+        url: '/players/player-1-2.jpg',
+        caption: 'Sesión de entrenamiento'
+      },
+      {
+        type: 'image',
+        url: '/players/player-1-3.jpg',
+        caption: 'Foto del equipo'
+      }
+    ]
+  },
+  'wallace-falcao': {
+    id: 'wallace-falcao',
+    name: 'Wallace Falcão',
+    position: 'Portero',
+    age: 0,
+    nationality: 'Brasil',
+    height: '1.90m',
+    weight: '85kg',
+    category: 'Fútbol',
+    instagram: 'https://www.instagram.com/wallace_cf/',
+    stats: {
+      goals: 0,
+      assists: 0,
+      matches: 0
+    },
+    bio: 'Wallace Falcão es un talentoso portero que actualmente juega para IFK Åmål. Su agilidad y capacidad para detener tiros lo convierten en un activo valioso para su equipo.',
+    trajectory: [
+      {
+        team: 'IFK Åmål',
+        period: '2023 - Presente',
+        role: 'Portero',
+        achievements: [],
+        stats: {
+          goals: 0,
+          assists: 0,
+          matches: 0
+        }
+      }
+    ],
+    media: [
+      {
+        type: 'image',
+        url: '/players/player-2.jpg',
+        caption: 'Acción de partido'
+      },
+      {
+        type: 'image',
+        url: '/players/player-2-2.jpg',
+        caption: 'Sesión de entrenamiento'
+      },
+      {
+        type: 'image',
+        url: '/players/player-2-3.jpg',
+        caption: 'Foto del equipo'
+      }
+    ]
+  },
+  'khalyan-pereira': {
+    id: 'khalyan-pereira',
+    name: 'Khalyan Pereira',
+    position: 'Defensa',
+    age: 22,
+    nationality: 'Brasil',
+    height: '1.88m',
+    weight: '80kg',
+    category: 'Fútbol',
+    instagram: 'https://www.instagram.com/khalyan02/',
+    stats: {
+      goals: 0,
+      assists: 0,
+      matches: 0
+    },
+    bio: 'Khalyan Pereira es un hábil defensa de Pernambuco, Brasil. A sus 22 años, aporta experiencia y sólidas capacidades defensivas a IFK Åmål.',
+    trajectory: [
+      {
+        team: 'IFK Åmål',
+        period: '2023 - Presente',
+        role: 'Defensa',
+        achievements: [],
+        stats: {
+          goals: 0,
+          assists: 0,
+          matches: 0
+        }
+      }
+    ],
+    media: [
+      {
+        type: 'image',
+        url: '/players/player-3.jpg',
+        caption: 'Acción de partido'
+      },
+      {
+        type: 'image',
+        url: '/players/player-3-2.jpg',
+        caption: 'Sesión de entrenamiento'
+      },
+      {
+        type: 'image',
+        url: '/players/player-3-3.jpg',
+        caption: 'Foto del equipo'
       }
     ]
   }
@@ -394,6 +537,64 @@ export default function PlayerPage({ params }: { params: { id: string } }) {
             </div>
           </div>
         )}
+
+        <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+          <div className="flex flex-col md:flex-row gap-8">
+            <div className="w-full md:w-1/3">
+              <div className="relative aspect-[3/4] rounded-lg overflow-hidden mb-4">
+                <Image
+                  src={player.media[0].url}
+                  alt={player.name}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p className="text-gray-600">Posición</p>
+                  <p className="font-medium">{player.position}</p>
+                </div>
+                <div>
+                  <p className="text-gray-600">Edad</p>
+                  <p className="font-medium">{player.age}</p>
+                </div>
+                <div>
+                  <p className="text-gray-600">Nacionalidad</p>
+                  <p className="font-medium">{player.nationality}</p>
+                </div>
+                <div>
+                  <p className="text-gray-600">Altura</p>
+                  <p className="font-medium">{player.height}</p>
+                </div>
+                <div>
+                  <p className="text-gray-600">Peso</p>
+                  <p className="font-medium">{player.weight}</p>
+                </div>
+                <div>
+                  <p className="text-gray-600">Categoría</p>
+                  <p className="font-medium">{player.category}</p>
+                </div>
+                <div>
+                  <p className="text-gray-600">Instagram</p>
+                  <p className="font-medium">
+                    {player.instagram ? (
+                      <a 
+                        href={player.instagram} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-800"
+                      >
+                        @{player.instagram.split('/').pop()}
+                      </a>
+                    ) : (
+                      '-'
+                    )}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

@@ -4,25 +4,34 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 
 const players = [
   {
-    id: 'player-1',
-    name: 'Alex Rodriguez',
-    position: 'Delantero',
-    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1000&auto=format&fit=crop',
-    bio: 'Un delantero dinámico con velocidad excepcional y capacidad de definición.'
-  },
-  {
-    id: 'player-2',
-    name: 'Marcus Johnson',
-    position: 'Centrocampista',
-    image: 'https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=1000&auto=format&fit=crop',
-    bio: 'Un centrocampista creativo con excelente visión y rango de pase.'
-  },
-  {
-    id: 'player-3',
-    name: 'Lucas Silva',
+    id: 'joao-victor',
+    name: 'João Victor',
     position: 'Defensa',
-    image: 'https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=1000&auto=format&fit=crop',
-    bio: 'Un defensa central dominante con excelente capacidad aérea y entrada.'
+    age: 18,
+    nationality: 'Brasil',
+    category: 'Fútbol',
+    image: '/players/player-1.jpg',
+    description: 'Un prometedor defensa con fuertes habilidades defensivas y cualidades de liderazgo. Actualmente desarrollando sus habilidades en São Paulo.'
+  },
+  {
+    id: 'wallace-falcao',
+    name: 'Wallace Falcão',
+    position: 'Portero',
+    age: 0,
+    nationality: 'Brasil',
+    category: 'Fútbol',
+    image: '/players/player-2.jpg',
+    description: 'Un talentoso portero conocido por su agilidad y capacidad para detener tiros. Actualmente juega para IFK Åmål.'
+  },
+  {
+    id: 'khalyan-pereira',
+    name: 'Khalyan Pereira',
+    position: 'Defensa',
+    age: 22,
+    nationality: 'Brasil',
+    category: 'Fútbol',
+    image: '/players/player-3.jpg',
+    description: 'Un experimentado defensa con sólidas capacidades defensivas. Aporta fuerza y serenidad a la línea defensiva de IFK Åmål.'
   }
 ]
 
@@ -39,30 +48,33 @@ export default function PlayersPage() {
 
         <h1 className="text-4xl font-bold mb-8">Nuestros Jugadores</h1>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {players.map((player) => (
             <Link
-              href={`/es/jugadores/${player.id}`}
               key={player.id}
-              className="group bg-white rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105"
+              href={`/es/jugadores/${player.id}`}
+              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
             >
-              <div className="relative h-64">
+              <div className="relative aspect-[3/4]">
                 <Image
                   src={player.image}
                   alt={player.name}
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute bottom-0 left-0 p-6 text-white">
-                  <h2 className="text-2xl font-bold mb-2">{player.name}</h2>
-                  <p className="text-sm bg-white/20 px-3 py-1 rounded-full inline-block">
-                    {player.position}
-                  </p>
-                </div>
               </div>
               <div className="p-6">
-                <p className="text-gray-700">{player.bio}</p>
+                <div className="flex justify-between items-start mb-2">
+                  <h2 className="text-xl font-semibold">{player.name}</h2>
+                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
+                    {player.category}
+                  </span>
+                </div>
+                <p className="text-gray-600 mb-4">{player.description}</p>
+                <div className="flex items-center text-sm text-gray-500">
+                  <span className="mr-4">{player.position}</span>
+                  <span>{player.age} años</span>
+                </div>
               </div>
             </Link>
           ))}

@@ -4,29 +4,38 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 
 const players = [
   {
-    id: 'player-1',
-    name: 'Alex Rodriguez',
-    position: 'Atacante',
-    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1000&auto=format&fit=crop',
-    bio: 'Um atacante dinâmico com velocidade excepcional e capacidade de finalização.'
-  },
-  {
-    id: 'player-2',
-    name: 'Marcus Johnson',
-    position: 'Meio-campo',
-    image: 'https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=1000&auto=format&fit=crop',
-    bio: 'Um meio-campista criativo com excelente visão e alcance de passe.'
-  },
-  {
-    id: 'player-3',
-    name: 'Lucas Silva',
+    id: 'joao-victor',
+    name: 'João Victor',
     position: 'Zagueiro',
-    image: 'https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=1000&auto=format&fit=crop',
-    bio: 'Um zagueiro central dominante com excelente capacidade aérea e entrada.'
+    age: 18,
+    nationality: 'Brasil',
+    category: 'Futebol',
+    image: '/players/player-1.jpg',
+    description: 'Um promissor zagueiro com fortes habilidades defensivas e qualidades de liderança. Atualmente desenvolvendo suas habilidades no São Paulo.'
+  },
+  {
+    id: 'wallace-falcao',
+    name: 'Wallace Falcão',
+    position: 'Goleiro',
+    age: 0,
+    nationality: 'Brasil',
+    category: 'Futebol',
+    image: '/players/player-2.jpg',
+    description: 'Um talentoso goleiro conhecido por sua agilidade e capacidade de defesa. Atualmente joga pelo IFK Åmål.'
+  },
+  {
+    id: 'khalyan-pereira',
+    name: 'Khalyan Pereira',
+    position: 'Zagueiro',
+    age: 22,
+    nationality: 'Brasil',
+    category: 'Futebol',
+    image: '/players/player-3.jpg',
+    description: 'Um experiente zagueiro com sólidas capacidades defensivas. Traz força e serenidade para a linha defensiva do IFK Åmål.'
   }
 ]
 
-export default function PlayersPage() {
+export default function JogadoresPage() {
   return (
     <div className="min-h-screen pt-20">
       <div className="container mx-auto px-4 py-12">
@@ -39,30 +48,33 @@ export default function PlayersPage() {
 
         <h1 className="text-4xl font-bold mb-8">Nossos Jogadores</h1>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {players.map((player) => (
             <Link
-              href={`/pt/jogadores/${player.id}`}
               key={player.id}
-              className="group bg-white rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105"
+              href={`/pt/jogadores/${player.id}`}
+              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
             >
-              <div className="relative h-64">
+              <div className="relative aspect-[3/4]">
                 <Image
                   src={player.image}
                   alt={player.name}
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute bottom-0 left-0 p-6 text-white">
-                  <h2 className="text-2xl font-bold mb-2">{player.name}</h2>
-                  <p className="text-sm bg-white/20 px-3 py-1 rounded-full inline-block">
-                    {player.position}
-                  </p>
-                </div>
               </div>
               <div className="p-6">
-                <p className="text-gray-700">{player.bio}</p>
+                <div className="flex justify-between items-start mb-2">
+                  <h2 className="text-xl font-semibold">{player.name}</h2>
+                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
+                    {player.category}
+                  </span>
+                </div>
+                <p className="text-gray-600 mb-4">{player.description}</p>
+                <div className="flex items-center text-sm text-gray-500">
+                  <span className="mr-4">{player.position}</span>
+                  <span>{player.age} anos</span>
+                </div>
               </div>
             </Link>
           ))}
