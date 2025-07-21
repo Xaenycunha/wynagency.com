@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Carousel from '@/components/Carousel'
+import PlayerCarousel from '@/components/PlayerCarousel';
 
 const players = [
   {
@@ -20,8 +21,124 @@ const players = [
     name: 'Khalyan Pereira',
     image: '/players/khalyan-pereira.jpg',
     description: 'Um experiente zagueiro com sólidas capacidades defensivas. Traz força e serenidade para a linha defensiva do IFK Åmål.'
-  }
-]
+  },
+  {
+    id: 'victor-sillos',
+    name: 'Victor Sillos',
+    image: '/players/victor-sillos.jpg',
+    description: '',
+  },
+  {
+    id: 'ryan-martins',
+    name: 'Ryan Martins',
+    image: '/players/ryan-martins.jpg',
+    description: '',
+  },
+  {
+    id: 'joao-daddario',
+    name: 'Joao Daddario',
+    image: '/players/joao-daddario.jpg',
+    description: '',
+  },
+  {
+    id: 'guilherme-garcia',
+    name: 'Guilherme Garcia',
+    image: '/players/guilherme-garcia.jpg',
+    description: '',
+  },
+  {
+    id: 'felipe-toneto',
+    name: 'Felipe Toneto',
+    image: '/players/felipe-toneto.jpg',
+    description: '',
+  },
+  {
+    id: 'steven-santos',
+    name: 'Steven Santos',
+    image: '/players/steven-santos.jpg',
+    description: '',
+  },
+  {
+    id: 'henrique-scholl',
+    name: 'Henrique Scholl',
+    image: '/players/henrique-scholl.jpg',
+    description: '',
+  },
+  {
+    id: 'adonay-silva',
+    name: 'Adonay Silva',
+    image: '/players/adonay-silva.jpg',
+    description: '',
+  },
+  {
+    id: 'davi-moura',
+    name: 'Davi Moura',
+    image: '/players/davi-moura.jpg',
+    description: '',
+  },
+  {
+    id: 'eduardo-lopes',
+    name: 'Eduardo Lopes',
+    image: '/players/eduardo-lopes.jpg',
+    description: '',
+  },
+  {
+    id: 'nicolas-casteluber',
+    name: 'Nicolas Casteluber',
+    image: '/players/nicolas-casteluber.jpg',
+    description: '',
+  },
+  {
+    id: 'ian-reis',
+    name: 'Ian Reis',
+    image: '/players/ian-reis.jpg',
+    description: '',
+  },
+  {
+    id: 'gustavo-castro',
+    name: 'Gustavo Castro',
+    image: '/players/gustavo-castro.jpg',
+    description: '',
+  },
+  {
+    id: 'adam-guzman',
+    name: 'Adam Guzman',
+    image: '/players/adam-guzman.jpg',
+    description: '',
+  },
+  {
+    id: 'luca-oliveira',
+    name: 'Luca Oliveira',
+    image: '/players/luca-oliveira.jpg',
+    description: '',
+  },
+  {
+    id: 'breno-simoes',
+    name: 'Breno Simoes',
+    image: '/players/breno-simoes.jpg',
+    description: '',
+  },
+  {
+    id: 'caio-alves',
+    name: 'Caio Alves',
+    image: '/players/caio-alves.jpg',
+    description: '',
+  },
+  {
+    id: 'claudiney-cardoso',
+    name: 'Claudiney Cardoso',
+    image: '/players/claudiney-cardoso.jpg',
+    description: '',
+  },
+  {
+    id: 'anthony-gomes',
+    name: 'Anthony Gomes',
+    image: '/players/anthony-gomes.jpg',
+    description: '',
+  },
+];
+
+players.sort((a, b) => a.name.localeCompare(b.name));
 
 const tournaments = [
   {
@@ -115,7 +232,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative h-[40vh] sm:h-[60vh] lg:h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?q=80&w=1000&auto=format&fit=crop"
@@ -126,19 +243,19 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/40" />
         </div>
-        <div className="container mx-auto px-4 z-20 text-center text-white">
+        <div className="container mx-auto px-2 sm:px-4 z-20 text-center text-white">
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-3 sm:mb-6 animate-fade-in">
               WYN AGENCY
             </h1>
-            <p className="text-xl md:text-2xl mb-8 animate-fade-in-delay">
+            <p className="text-base sm:text-xl md:text-2xl mb-4 sm:mb-8 animate-fade-in-delay">
               Elevando Carreiras de Futebol através da Gestão Profissional
             </p>
             <a
               href="https://api.whatsapp.com/send?phone=34663836731"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors animate-fade-in-delay-2"
+              className="inline-block bg-white text-black px-4 sm:px-8 py-2 sm:py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors animate-fade-in-delay-2"
             >
               Contate-nos
             </a>
@@ -176,28 +293,7 @@ export default function Home() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Nossos Jogadores</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {players.map((player) => (
-              <Link 
-                href={`/pt/jogadores/${player.id}`}
-                key={player.id}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105"
-              >
-                <div className="relative h-64">
-                  <Image
-                    src={player.image}
-                    alt={player.name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">{player.name}</h3>
-                  <p className="text-gray-700">{player.description}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
+          <PlayerCarousel players={players} />
         </div>
       </section>
 

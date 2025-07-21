@@ -29,19 +29,19 @@ export default function Hero() {
   const t = translations[locale as keyof typeof translations] || translations.pt
 
   return (
-    <section className="relative h-[80vh] flex items-center justify-center bg-gradient-to-r from-blue-900 to-blue-800 text-white">
+    <section className="relative h-[40vh] sm:h-[60vh] lg:h-[80vh] flex items-center justify-center bg-gradient-to-r from-blue-900 to-blue-800 text-white">
       <div className="absolute inset-0 bg-black/50" />
-      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
+      <div className="relative z-10 text-center px-2 sm:px-4 lg:px-8">
+        <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold mb-2 sm:mb-4">
           {t.title}
         </h1>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-6">
+        <h2 className="text-lg sm:text-2xl md:text-4xl font-semibold mb-3 sm:mb-6">
           {t.subtitle}
         </h2>
-        <p className="text-lg sm:text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+        <p className="text-sm sm:text-lg md:text-2xl mb-4 sm:mb-8 max-w-2xl mx-auto">
           {t.description}
         </p>
-        <button className="bg-white text-blue-900 px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-100 transition-colors">
+        <button className="bg-white text-blue-900 px-4 sm:px-8 py-2 sm:py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-blue-100 transition-colors">
           {t.cta}
         </button>
       </div>
