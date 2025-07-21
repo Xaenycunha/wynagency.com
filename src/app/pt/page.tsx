@@ -244,7 +244,7 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/40" />
         </div>
-        <div className="container mx-auto px-2 sm:px-4 z-20 text-center text-white">
+        <div className="container mx-auto px-2 sm:px-4 z-20 text-center text-white pt-16">
           <div className="max-w-3xl mx-auto">
             <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-3 sm:mb-6 animate-fade-in">
               WYN AGENCY
