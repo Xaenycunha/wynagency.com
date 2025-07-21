@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Carousel from '@/components/Carousel'
 import PlayerCarousel from '@/components/PlayerCarousel';
+import Testimonials from '@/components/Testimonials';
 
 const players = [
   {
@@ -263,6 +264,17 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Players Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Nossos Jogadores</h2>
+          <PlayerCarousel players={players} />
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <Testimonials />
+
       {/* About Section */}
       <section id="sobre" className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -286,14 +298,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Players Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Nossos Jogadores</h2>
-          <PlayerCarousel players={players} />
         </div>
       </section>
 
