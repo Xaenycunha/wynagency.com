@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import { usePathname } from 'next/navigation'
 
 const translations = {
@@ -24,47 +25,43 @@ const translations = {
 }
 
 const testimonials = [
-  {
-    id: 1,
-    name: 'John Doe',
-    position: 'Forward',
-    image: '/testimonials/player1.jpg'
-  },
-  {
-    id: 2,
-    name: 'Jane Smith',
-    position: 'Midfielder',
-    image: '/testimonials/player2.jpg'
-  },
-  {
-    id: 3,
-    name: 'Mike Johnson',
-    position: 'Defender',
-    image: '/testimonials/player3.jpg'
-  }
+  { type: 'youtube', url: 'https://www.youtube.com/watch?v=sYLfw04ISQs' },
+  { type: 'youtube', url: 'https://www.youtube.com/watch?v=NFPET4q37_I' },
+  { type: 'youtube', url: 'https://www.youtube.com/watch?v=PHeMm2n8OG0' },
 ]
+
+const sectionTitles = {
+  en: 'Testimonials',
+  es: 'Testimonios',
+  pt: 'Depoimentos',
+}
+
+function getYoutubeId(url: string) {
+  const match = url.match(/v=([\w-]+)/)
+  return match ? match[1] : ''
+}
 
 export default function Testimonials() {
   const pathname = usePathname()
   const locale = pathname.split('/')[1] || 'en'
-  const t = translations[locale as keyof typeof translations]
+  const title = sectionTitles[locale as keyof typeof sectionTitles] || sectionTitles.en
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">{t.title}</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <div key={testimonial.id} className="bg-gray-50 rounded-lg p-6 shadow-md">
-              <p className="text-gray-600 mb-6">
-                {t[`testimonial${index + 1}` as keyof typeof t]}
-              </p>
-              <div className="flex items-center">
-                <div className="w-12 h-12 rounded-full bg-gray-300 mr-4" />
-                <div>
-                  <h3 className="font-semibold">{testimonial.name}</h3>
-                  <p className="text-gray-600">{testimonial.position}</p>
-                </div>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">{title}</h2>
+        <div className="grid justify-center mx-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {testimonials.map((item, idx) => (
+            <div key={idx} className="bg-white rounded-lg p-4 shadow-md flex flex-col items-center">
+              <div className="w-full aspect-[16/9] max-w-xl rounded-lg overflow-hidden">
+                <iframe
+                  src={`https://www.youtube.com/embed/${getYoutubeId(item.url)}`}
+                  title="YouTube video testimonial"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  loading="lazy"
+                  className="w-full h-full border-0 rounded-lg"
+                />
               </div>
             </div>
           ))}

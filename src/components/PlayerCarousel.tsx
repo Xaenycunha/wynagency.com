@@ -27,6 +27,7 @@ export default function PlayerCarousel({ players }: PlayerCarouselProps) {
   const [visibleCount, setVisibleCount] = useState(getVisibleCount());
   const transitionDuration = 600; // ms
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [slideDirection, setSlideDirection] = useState<'left' | 'right'>('left');
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const autoSlideRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -66,12 +67,14 @@ export default function PlayerCarousel({ players }: PlayerCarouselProps) {
 
   // Move carousel left or right
   const handleMove = (direction: number, isAuto = false) => {
+    setSlideDirection(direction === 1 ? 'left' : 'right');
     setIsTransitioning(true);
     setTimeout(() => {
       setStartIndex((prev) => {
         let next = prev + direction;
         if (next < 0) next = players.length - 1;
         if (next >= players.length) next = 0;
+        console.log('handleMove', { direction, prev, next });
         return next;
       });
       setIsTransitioning(false);
@@ -96,7 +99,11 @@ export default function PlayerCarousel({ players }: PlayerCarouselProps) {
         <div
           className="flex gap-4 sm:gap-8 transition-transform"
           style={{
-            transform: isTransitioning ? `translateX(-${100 / visibleCount}%)` : 'translateX(0)',
+            transform: isTransitioning
+              ? slideDirection === 'left'
+                ? `translateX(-${100 / visibleCount}%)`
+                : `translateX(${100 / visibleCount}%)`
+              : 'translateX(0)',
             transition: isTransitioning ? `transform ${transitionDuration}ms cubic-bezier(0.4,0,0.2,1)` : 'none',
             width: '100%',
           }}
