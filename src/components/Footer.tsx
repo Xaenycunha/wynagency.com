@@ -67,13 +67,29 @@ export default function Footer() {
     setCurrentLang(savedLang)
   }, [])
 
+  // Mapping for main path segments between languages
+  const pathMap: Record<string, Record<string, string>> = {
+    players: { en: 'players', es: 'jugadores', pt: 'jogadores' },
+    tournaments: { en: 'tournaments', es: 'torneos', pt: 'torneios' },
+    jogadores: { en: 'players', es: 'jugadores', pt: 'jogadores' },
+    jugadores: { en: 'players', es: 'jugadores', pt: 'jogadores' },
+    torneios: { en: 'tournaments', es: 'torneos', pt: 'torneios' },
+    torneos: { en: 'tournaments', es: 'torneos', pt: 'torneios' },
+  }
+
   const handleLanguageChange = (langCode: string) => {
     setCurrentLang(langCode)
     setIsLangOpen(false)
-    // Save the selected language to localStorage
     localStorage.setItem('selectedLanguage', langCode)
-    // Navigate to the selected language's home page
-    window.location.href = `/${langCode}`
+    const pathParts = pathname.split('/')
+    if (pathParts[1] === langCode) return // already on selected lang
+    pathParts[1] = langCode
+    // Map the main segment if needed
+    if (pathParts[2] && pathMap[pathParts[2]]) {
+      pathParts[2] = pathMap[pathParts[2]][langCode] || pathParts[2]
+    }
+    const newPath = pathParts.join('/') || '/'
+    window.location.href = newPath
   }
 
   // Get the current language from the pathname

@@ -1,5 +1,8 @@
+'use client';
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 
 interface MediaItem {
   type: string
@@ -376,11 +379,8 @@ const players: Players = {
     bio: '',
     trajectory: [],
     media: [
-      {
-        type: 'image',
-        url: '/players/victor-sillos.jpg',
-        caption: 'Foto de perfil'
-      }
+      { type: 'image', url: '/players/victor-sillos.jpg', caption: 'Foto de perfil' },
+      { type: 'youtube', url: 'https://youtu.be/C88IdogdhTA?si=bWh36DJY95guVBrC', caption: 'Video destacado' }
     ]
   },
   'ryan-martins': {
@@ -395,7 +395,10 @@ const players: Players = {
     stats: { goals: 0, assists: 0, matches: 0 },
     bio: '',
     trajectory: [],
-    media: [ { type: 'image', url: '/players/ryan-martins.jpg', caption: 'Foto de perfil' } ]
+    media: [
+      { type: 'image', url: '/players/ryan-martins.jpg', caption: 'Foto de perfil' },
+      { type: 'youtube', url: 'https://youtu.be/R26T-2YIKqs?si=jrHXG4J5FU_HSzLQ', caption: 'Video destacado' }
+    ]
   },
   'joao-daddario': {
     name: 'Joao Daddario',
@@ -409,7 +412,10 @@ const players: Players = {
     stats: { goals: 0, assists: 0, matches: 0 },
     bio: '',
     trajectory: [],
-    media: [ { type: 'image', url: '/players/joao-daddario.jpg', caption: 'Foto de perfil' } ]
+    media: [
+      { type: 'image', url: '/players/joao-daddario.jpg', caption: 'Foto de perfil' },
+      { type: 'youtube', url: 'https://youtu.be/qKSKpHHGLq4?si=M5Ao1QNBUEEOYUyR', caption: 'Video destacado' }
+    ]
   },
   'guilherme-garcia': {
     name: 'Guilherme Garcia',
@@ -423,7 +429,10 @@ const players: Players = {
     stats: { goals: 0, assists: 0, matches: 0 },
     bio: '',
     trajectory: [],
-    media: [ { type: 'image', url: '/players/guilherme-garcia.jpg', caption: 'Foto de perfil' } ]
+    media: [
+      { type: 'image', url: '/players/guilherme-garcia.jpg', caption: 'Foto de perfil' },
+      { type: 'youtube', url: 'https://youtu.be/OtDVaEk1iEU', caption: 'Video destacado' }
+    ]
   },
   'felipe-toneto': {
     name: 'Felipe Toneto',
@@ -437,7 +446,10 @@ const players: Players = {
     stats: { goals: 0, assists: 0, matches: 0 },
     bio: '',
     trajectory: [],
-    media: [ { type: 'image', url: '/players/felipe-toneto.jpg', caption: 'Foto de perfil' } ]
+    media: [
+      { type: 'image', url: '/players/felipe-toneto.jpg', caption: 'Foto de perfil' },
+      { type: 'youtube', url: 'https://youtu.be/fXFbfbQDRG4?si=f-VJzLPXOXZAwfU9', caption: 'Video destacado' }
+    ]
   },
   'steven-santos': {
     name: 'Steven Santos',
@@ -451,7 +463,11 @@ const players: Players = {
     stats: { goals: 0, assists: 0, matches: 0 },
     bio: '',
     trajectory: [],
-    media: [ { type: 'image', url: '/players/steven-santos.jpg', caption: 'Foto de perfil' } ]
+    media: [
+      { type: 'image', url: '/players/steven-santos.jpg', caption: 'Foto de perfil' },
+      { type: 'youtube', url: 'https://youtu.be/qRkD0FLJKY8?si=-X5DJ-U9XCv8rU-D', caption: 'Video destacado' },
+      { type: 'youtube', url: 'https://youtu.be/mbABdyHZaZU?si=rxfqdm5bKLUdbh-e', caption: 'Video destacado 2' }
+    ]
   },
   'henrique-scholl': {
     name: 'Henrique Scholl',
@@ -465,7 +481,10 @@ const players: Players = {
     stats: { goals: 0, assists: 0, matches: 0 },
     bio: '',
     trajectory: [],
-    media: [ { type: 'image', url: '/players/henrique-scholl.jpg', caption: 'Foto de perfil' } ]
+    media: [
+      { type: 'image', url: '/players/henrique-scholl.jpg', caption: 'Foto de perfil' },
+      { type: 'youtube', url: 'https://youtu.be/aBOu5JYPy60?si=m5yDwHpG93yyv_To', caption: 'Video destacado' }
+    ]
   },
   'adonay-silva': {
     name: 'Adonay Silva',
@@ -479,7 +498,10 @@ const players: Players = {
     stats: { goals: 0, assists: 0, matches: 0 },
     bio: '',
     trajectory: [],
-    media: [ { type: 'image', url: '/players/adonay-silva.jpg', caption: 'Foto de perfil' } ]
+    media: [
+      { type: 'image', url: '/players/adonay-silva.jpg', caption: 'Foto de perfil' },
+      { type: 'youtube', url: 'https://youtu.be/CKyjETCp5Mk?si=e5oVLIpNQwXgDiLa', caption: 'Video destacado' }
+    ]
   },
   'davi-moura': {
     name: 'Davi Moura',
@@ -493,7 +515,10 @@ const players: Players = {
     stats: { goals: 0, assists: 0, matches: 0 },
     bio: '',
     trajectory: [],
-    media: [ { type: 'image', url: '/players/davi-moura.jpg', caption: 'Foto de perfil' } ]
+    media: [
+      { type: 'image', url: '/players/davi-moura.jpg', caption: 'Foto de perfil' },
+      { type: 'youtube', url: 'https://youtu.be/wNvpY89knU0?si=E9kBbKlNOaJUtCHy', caption: 'Video destacado' }
+    ]
   },
   'eduardo-lopes': {
     name: 'Eduardo Lopes',
@@ -507,7 +532,10 @@ const players: Players = {
     stats: { goals: 0, assists: 0, matches: 0 },
     bio: '',
     trajectory: [],
-    media: [ { type: 'image', url: '/players/eduardo-lopes.jpg', caption: 'Foto de perfil' } ]
+    media: [
+      { type: 'image', url: '/players/eduardo-lopes.jpg', caption: 'Foto de perfil' },
+      { type: 'youtube', url: 'https://youtu.be/WjENbb3IXSI?si=zS-gPY1RdRYU0DgP', caption: 'Video destacado' }
+    ]
   },
   'nicolas-casteluber': {
     name: 'Nicolas Casteluber',
@@ -535,7 +563,10 @@ const players: Players = {
     stats: { goals: 0, assists: 0, matches: 0 },
     bio: '',
     trajectory: [],
-    media: [ { type: 'image', url: '/players/ian-reis.jpg', caption: 'Foto de perfil' } ]
+    media: [
+      { type: 'image', url: '/players/ian-reis.jpg', caption: 'Foto de perfil' },
+      { type: 'youtube', url: 'https://youtu.be/759cdu5lmhg?si=KQKhmBxG9sczvV9k', caption: 'Video destacado' }
+    ]
   },
   'gustavo-castro': {
     name: 'Gustavo Castro',
@@ -639,6 +670,7 @@ const players: Players = {
 
 export default function PlayerPage({ params }: { params: { id: string } }) {
   const player = players[params.id as keyof typeof players]
+  const [modalImage, setModalImage] = useState<string | null>(null);
 
   if (!player) {
     return (
@@ -797,23 +829,64 @@ export default function PlayerPage({ params }: { params: { id: string } }) {
 
         {player.media && player.media.length > 0 && (
           <div>
-            <h2 className="text-2xl font-bold mb-8">Media</h2>
+            <h2 className="text-2xl font-bold mb-8">Medios</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {(player.media || []).map((item, index) => (
+              {player.media.map((item, index) => (
                 <div key={index} className="group relative h-64 rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
-                  <Image
-                    src={item.url}
-                    alt={item.caption}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <p className="text-sm">{item.caption}</p>
-                  </div>
+                  {item.type === 'image' ? (
+                    <>
+                      <button
+                        type="button"
+                        className="w-full h-full cursor-zoom-in focus:outline-none"
+                        onClick={() => setModalImage(item.url)}
+                        style={{ display: 'block' }}
+                        aria-label="Abrir vista previa de la imagen"
+                      >
+                        <Image
+                          src={item.url}
+                          alt={item.caption}
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                          <p className="text-sm">{item.caption}</p>
+                        </div>
+                      </button>
+                    </>
+                  ) : item.type === 'youtube' ? (
+                    <iframe
+                      src={item.url.replace('youtu.be/', 'www.youtube.com/embed/').replace('watch?v=', 'embed/').split('?')[0]}
+                      title={item.caption}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full border-0 rounded-2xl bg-black"
+                    />
+                  ) : null}
                 </div>
               ))}
             </div>
+            {modalImage && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80" onClick={() => setModalImage(null)}>
+                <div className="relative max-w-3xl w-full mx-4" onClick={e => e.stopPropagation()}>
+                  <button
+                    className="absolute top-2 right-2 text-white text-3xl font-bold bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center hover:bg-opacity-80 focus:outline-none"
+                    onClick={() => setModalImage(null)}
+                    aria-label="Cerrar vista previa"
+                  >
+                    &times;
+                  </button>
+                  <div className="w-full h-[60vh] relative">
+                    <Image
+                      src={modalImage}
+                      alt="Vista previa"
+                      fill
+                      className="object-contain rounded-2xl bg-black"
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         )}
       </div>
