@@ -128,7 +128,7 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4">{t.followUs}</h3>
             <div className="flex space-x-4">
               <a
-                href="https://instagram.com/wynagency"
+                href="https://www.instagram.com/wynagency_"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"

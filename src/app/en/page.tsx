@@ -50,14 +50,14 @@ const teamMembers = [
   {
     name: 'Kelvin Bruno',
     role: 'CEO & Founder',
-    image: '/founders/kelvin-bruno.jpg',
-    bio: 'With over 15 years of experience in sports management, Kelvin has built a reputation for identifying and developing top talent.'
+    image: '/founders/kelvin-bruno-new.jpg',
+    bio: 'With over 10 years of experience in sports management, Kelvin has built a reputation for identifying and developing top talent.'
   },
   {
     name: 'Victor Araújo',
     role: 'Head of Player Development',
     image: '/founders/victor-araujo.jpg',
-    bio: 'Former professional player turned talent scout, Victor brings a unique perspective to player development and career management.'
+    bio: 'A specialist in talent scouting and strategic opportunity management in football, Victor has already built over a decade of experience in the sports industry.'
   },
   {
     name: 'Xay Cunha',
